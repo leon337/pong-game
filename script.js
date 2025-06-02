@@ -10,7 +10,8 @@ let playerY = canvas.height / 2 - paddleHeight / 2;
 let aiY = canvas.height / 2 - paddleHeight / 2;
 let ballX = canvas.width / 2;
 let ballY = canvas.height / 2;
-let ballSpeedX = 5;
+let ballSpeedX = 5;let playerScore = 0;
+let aiScore = 0;
 let ballSpeedY = 5;
 const paddleSpeed = 14;
 
@@ -32,6 +33,11 @@ function resetBall() {
   ballY = canvas.height / 2;
   ballSpeedX = -ballSpeedX;
   ballSpeedY = 5 * (Math.random() > 0.5 ? 1 : -1);
+  ctx.fillStyle = "white";
+  ctx.font = "36px Arial";
+  ctx.fillText(`${playerScore}`, canvas.width / 4, 50);
+  ctx.fillText(`${aiScore}`, canvas.width * 3 / 4, 50);
+
 }
 
 function draw() {
@@ -67,9 +73,14 @@ function update() {
     ballSpeedX = -ballSpeedX;
   }
 
-  if (ballX < 0 || ballX > canvas.width) {
+  if (ballX < 0) {
+    aiScore++;
+    resetBall();
+  } else if (ballX > canvas.width) {
+    playerScore++;
     resetBall();
   }
+ 
 
   // AI movement
   aiY += (ballY - (aiY + paddleHeight / 2)) * 0.08;
