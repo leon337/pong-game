@@ -1,4 +1,3 @@
-
 const canvas = document.getElementById("pongCanvas");
 const ctx = canvas.getContext("2d");
 
@@ -13,7 +12,7 @@ let ballX = canvas.width / 2;
 let ballY = canvas.height / 2;
 let ballSpeedX = 5;
 let ballSpeedY = 5;
-const paddleSpeed = 8;
+const paddleSpeed = 14;
 
 function drawRect(x, y, w, h, color) {
   ctx.fillStyle = color;
