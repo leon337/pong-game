@@ -33,18 +33,17 @@ function resetBall() {
   ballY = canvas.height / 2;
   ballSpeedX = -ballSpeedX;
   ballSpeedY = 5 * (Math.random() > 0.5 ? 1 : -1);
-  ctx.fillStyle = "white";
-  ctx.font = "36px Arial";
-  ctx.fillText(`${playerScore}`, canvas.width / 4, 50);
-  ctx.fillText(`${aiScore}`, canvas.width * 3 / 4, 50);
-
-}
+  }
 
 function draw() {
   drawRect(0, 0, canvas.width, canvas.height, "#222");
   drawRect(0, playerY, paddleWidth, paddleHeight, "white");
   drawRect(canvas.width - paddleWidth, aiY, paddleWidth, paddleHeight, "white");
   drawCircle(ballX, ballY, 10, "white");
+  ctx.fillStyle = "white";
+  ctx.font = "36px Arial";
+  ctx.fillText(`${playerScore}`, canvas.width / 4, 50);
+  ctx.fillText(`${aiScore}`, canvas.width * 3 / 4, 50);
 }
 
 function update() {
