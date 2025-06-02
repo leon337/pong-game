@@ -1,7 +1,7 @@
 
 body {
     margin: 0;
-    background: black;
+    background: rgb(32, 89, 8);
     display: flex;
     justify-content: center;
     align-items: center;
